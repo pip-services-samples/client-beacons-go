@@ -1,0 +1,9 @@
+npm-debug.log*
+/.idea
+/node_modules
+/dist
+/obj
+/data/*.json
+/.vscode
+/temp
+/go.sum
