@@ -3,9 +3,9 @@ package test_clients
 import (
 	"testing"
 
-	bclients "github.com/pip-services-samples/pip-client-microservice-go/clients/version1"
-	blogic "github.com/pip-services-samples/pip-data-microservice-go/logic"
-	bpersist "github.com/pip-services-samples/pip-data-microservice-go/persistence"
+	bclients "github.com/pip-services-samples/pip-clients-beacons-go/clients/version1"
+	blogic "github.com/pip-services-samples/pip-services-beacons-go/logic"
+	bpersist "github.com/pip-services-samples/pip-services-beacons-go/persistence"
 	cconf "github.com/pip-services3-go/pip-services3-commons-go/config"
 	cref "github.com/pip-services3-go/pip-services3-commons-go/refer"
 )

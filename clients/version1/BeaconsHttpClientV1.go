@@ -3,7 +3,7 @@ package clients
 import (
 	"reflect"
 
-	bdata "github.com/pip-services-samples/pip-data-microservice-go/data/version1"
+	bdata "github.com/pip-services-samples/pip-services-beacons-go/data/version1"
 	cdata "github.com/pip-services3-go/pip-services3-commons-go/data"
 	rpcclient "github.com/pip-services3-go/pip-services3-rpc-go/clients"
 )
