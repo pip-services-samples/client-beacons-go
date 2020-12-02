@@ -1,9 +1,9 @@
-package test_clients
+package test_clients1
 
 import (
 	"testing"
 
-	bclients "github.com/pip-services-samples/pip-clients-beacons-go/clients/version1"
+	clients1 "github.com/pip-services-samples/pip-services-beacons-go/clients/version1"
 	blogic "github.com/pip-services-samples/pip-services-beacons-go/logic"
 	bpersist "github.com/pip-services-samples/pip-services-beacons-go/persistence"
 	bservices "github.com/pip-services-samples/pip-services-beacons-go/services/version1"
@@ -15,8 +15,8 @@ func TestBeaconsHttpClientV1(t *testing.T) {
 
 	var persistence *bpersist.BeaconsMemoryPersistence
 	var controller *blogic.BeaconsController
-	var service *bservices.BeaconsHttpServiceV1
-	var client *bclients.BeaconsHttpClientV1
+	var service *bservices.BeaconsCommandableHttpServiceV1
+	var client *clients1.BeaconsCommandableHttpClientV1
 	var fixture *BeaconsClientV1Fixture
 
 	persistence = bpersist.NewBeaconsMemoryPersistence()
@@ -31,10 +31,10 @@ func TestBeaconsHttpClientV1(t *testing.T) {
 		"connection.host", "localhost",
 	)
 
-	service = bservices.NewBeaconsHttpServiceV1()
+	service = bservices.NewBeaconsCommandableHttpServiceV1()
 	service.Configure(httpConfig)
 
-	client = bclients.NewBeaconsHttpClientV1()
+	client = clients1.NewBeaconsCommandableHttpClientV1()
 	client.Configure(httpConfig)
 
 	references := cref.NewReferencesFromTuples(

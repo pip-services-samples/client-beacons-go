@@ -1,16 +1,16 @@
-package test_clients
+package test_clients1
 
 import (
 	"testing"
 
-	bclients "github.com/pip-services-samples/pip-clients-beacons-go/clients/version1"
+	clients1 "github.com/pip-services-samples/pip-services-beacons-go/clients/version1"
 	cconf "github.com/pip-services3-go/pip-services3-commons-go/config"
 	cref "github.com/pip-services3-go/pip-services3-commons-go/refer"
 )
 
 func TestBeaconsHttpClientExtV1(t *testing.T) {
 
-	var client *bclients.BeaconsHttpClientV1
+	var client *clients1.BeaconsCommandableHttpClientV1
 	var fixture *BeaconsClientV1Fixture
 
 	httpConfig := cconf.NewConfigParamsFromTuples(
@@ -19,7 +19,7 @@ func TestBeaconsHttpClientExtV1(t *testing.T) {
 		"connection.host", "localhost",
 	)
 
-	client = bclients.NewBeaconsHttpClientV1()
+	client = clients1.NewBeaconsCommandableHttpClientV1()
 	client.Configure(httpConfig)
 
 	references := cref.NewReferencesFromTuples(
@@ -35,7 +35,5 @@ func TestBeaconsHttpClientExtV1(t *testing.T) {
 	defer client.Close("")
 
 	t.Run("BeaconsHttpClientV1:CRUD Operations", fixture.TestCrudOperations)
-
-	//t.Run("BeaconsHttpClientV1:1Calculate Positions", fixture.TestCalculatePosition)
 
 }

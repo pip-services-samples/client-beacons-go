@@ -1,22 +1,23 @@
-package clients
+package clients1
 
 import (
-	bdata "github.com/pip-services-samples/pip-services-beacons-go/data/version1"
+	data1 "github.com/pip-services-samples/pip-services-beacons-go/data/version1"
 	cdata "github.com/pip-services3-go/pip-services3-commons-go/data"
 )
 
 type IBeaconsClientV1 interface {
-	GetBeacons(correlationId string, filter *cdata.FilterParams, paging *cdata.PagingParams) (page *bdata.BeaconV1DataPage, err error)
+	GetBeacons(correlationId string, filter *cdata.FilterParams,
+		paging *cdata.PagingParams) (*data1.BeaconV1DataPage, error)
 
-	GetBeaconById(correlationId string, beaconId string) (beacon *bdata.BeaconV1, err error)
+	GetBeaconById(correlationId string, beaconId string) (*data1.BeaconV1, error)
 
-	GetBeaconByUdi(correlationId string, udi string) (beacon *bdata.BeaconV1, err error)
+	GetBeaconByUdi(correlationId string, udi string) (*data1.BeaconV1, error)
 
-	CalculatePosition(correlationId string, siteId string, udis []string) (position *bdata.GeoPointV1, err error)
+	CalculatePosition(correlationId string, siteId string, udis []string) (*data1.GeoPointV1, error)
 
-	CreateBeacon(correlationId string, beacon bdata.BeaconV1) (res *bdata.BeaconV1, err error)
+	CreateBeacon(correlationId string, beacon *data1.BeaconV1) (*data1.BeaconV1, error)
 
-	UpdateBeacon(correlationId string, beacon bdata.BeaconV1) (res *bdata.BeaconV1, err error)
+	UpdateBeacon(correlationId string, beacon *data1.BeaconV1) (*data1.BeaconV1, error)
 
-	DeleteBeaconById(correlationId string, beaconId string) (beacon *bdata.BeaconV1, err error)
+	DeleteBeaconById(correlationId string, beaconId string) (*data1.BeaconV1, error)
 }
