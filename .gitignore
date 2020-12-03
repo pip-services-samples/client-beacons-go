@@ -7,3 +7,4 @@ npm-debug.log*
 /.vscode
 /temp
 /go.sum
+.DS_store

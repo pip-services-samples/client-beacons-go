@@ -3,7 +3,7 @@ package test_clients1
 import (
 	"testing"
 
-	clients1 "github.com/pip-services-samples/pip-services-beacons-go/clients/version1"
+	clients1 "github.com/pip-services-samples/pip-clients-beacons-go/clients/version1"
 	blogic "github.com/pip-services-samples/pip-services-beacons-go/logic"
 	bpersist "github.com/pip-services-samples/pip-services-beacons-go/persistence"
 	bservices "github.com/pip-services-samples/pip-services-beacons-go/services/version1"

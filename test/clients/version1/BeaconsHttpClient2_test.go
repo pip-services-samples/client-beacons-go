@@ -3,7 +3,7 @@ package test_clients1
 import (
 	"testing"
 
-	clients1 "github.com/pip-services-samples/pip-services-beacons-go/clients/version1"
+	clients1 "github.com/pip-services-samples/pip-clients-beacons-go/clients/version1"
 	cconf "github.com/pip-services3-go/pip-services3-commons-go/config"
 	cref "github.com/pip-services3-go/pip-services3-commons-go/refer"
 )
