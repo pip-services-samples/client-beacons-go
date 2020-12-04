@@ -13,34 +13,17 @@ type beaconsMemoryClientV1Test struct {
 
 func newBeaconsMemoryClientV1Test() *beaconsMemoryClientV1Test {
 
-	client := clients1.NewBeaconsMemoryClientV1(nil)
-
-	fixture := NewBeaconsClientV1Fixture(client)
-
-	return &beaconsMemoryClientV1Test{
-		client:  client,
-		fixture: fixture,
-	}
+	return &beaconsMemoryClientV1Test{}
 }
 
 func (c *beaconsMemoryClientV1Test) setup(t *testing.T) {
-
-	err := c.client.Open("")
-	if err != nil {
-		t.Error("Failed to open client", err)
-	}
-	err = c.client.Clear("")
-	if err != nil {
-		t.Error("Failed to open client", err)
-	}
-
+	c.client = clients1.NewBeaconsMemoryClientV1(nil)
+	c.fixture = NewBeaconsClientV1Fixture(c.client)
 }
 
 func (c *beaconsMemoryClientV1Test) teardown(t *testing.T) {
-	err := c.client.Close("")
-	if err != nil {
-		t.Error("Failed to close client", err)
-	}
+	c.client = nil
+	c.fixture = nil
 }
 
 func TestBeaconsMemoryClientV1(t *testing.T) {
