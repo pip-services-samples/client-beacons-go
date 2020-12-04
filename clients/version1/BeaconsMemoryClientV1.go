@@ -22,14 +22,6 @@ func NewBeaconsMemoryClientV1(items []data1.BeaconV1) *BeaconsMemoryClientV1 {
 	return c
 }
 
-func (c *BeaconsMemoryClientV1) Open(corelationId string) error {
-	return nil
-}
-
-func (c *BeaconsMemoryClientV1) Close(corelationId string) error {
-	return nil
-}
-
 func (c *BeaconsMemoryClientV1) composeFilter(filter *cdata.FilterParams) func(item data1.BeaconV1) bool {
 	if filter == nil {
 		filter = cdata.NewEmptyFilterParams()
@@ -226,9 +218,4 @@ func (c *BeaconsMemoryClientV1) DeleteBeaconById(correlationId string, beaconId 
 		c.items = append(c.items[:index], c.items[index+1:]...)
 	}
 	return &item, nil
-}
-
-func (c *BeaconsMemoryClientV1) Clear(correlationId string) error {
-	c.items = make([]data1.BeaconV1, 0)
-	return nil
 }
