@@ -8,10 +8,13 @@ import (
 
 type BeaconsClientFactory struct {
 	cbuild.Factory
-	NullClientDescriptor   *cref.Descriptor
-	DirectClientDescriptor *cref.Descriptor
-	HttpClientDescriptor   *cref.Descriptor
-	GrpcClientDescriptor   *cref.Descriptor
+	NullClientDescriptor    *cref.Descriptor
+	DirectClientDescriptor  *cref.Descriptor
+	HttpClientDescriptor    *cref.Descriptor
+	GrpcClientDescriptor    *cref.Descriptor
+	CmdHttpClientDescriptor *cref.Descriptor
+	CmdGrpcClientDescriptor *cref.Descriptor
+	MemoryClientDescriptor  *cref.Descriptor
 }
 
 func NewBeaconsClientFactory() *BeaconsClientFactory {
@@ -22,10 +25,18 @@ func NewBeaconsClientFactory() *BeaconsClientFactory {
 	bcf.NullClientDescriptor = cref.NewDescriptor("beacons", "client", "null", "*", "1.0")
 	bcf.DirectClientDescriptor = cref.NewDescriptor("beacons", "client", "direct", "*", "1.0")
 	bcf.HttpClientDescriptor = cref.NewDescriptor("beacons", "client", "http", "*", "1.0")
+	bcf.GrpcClientDescriptor = cref.NewDescriptor("beacons", "client", "grpc", "*", "1.0")
+	bcf.CmdHttpClientDescriptor = cref.NewDescriptor("beacons", "client", "commandable-http", "*", "1.0")
+	bcf.CmdGrpcClientDescriptor = cref.NewDescriptor("beacons", "client", "commandable-grpc", "*", "1.0")
+	bcf.MemoryClientDescriptor = cref.NewDescriptor("beacons", "client", "memory", "*", "1.0")
 
 	bcf.RegisterType(bcf.NullClientDescriptor, bclients.NewBeaconsNullClientV1)
 	bcf.RegisterType(bcf.DirectClientDescriptor, bclients.NewBeaconsDirectClientV1)
-	bcf.RegisterType(bcf.HttpClientDescriptor, bclients.NewBeaconsHttpClientV1)
+	bcf.RegisterType(bcf.HttpClientDescriptor, bclients.NewBeaconsRestClientV1)
+	bcf.RegisterType(bcf.GrpcClientDescriptor, bclients.NewBeaconsGrpcClientV1)
+	bcf.RegisterType(bcf.CmdGrpcClientDescriptor, bclients.NewBeaconsCommandableGrpcClientV1)
+	bcf.RegisterType(bcf.CmdHttpClientDescriptor, bclients.NewBeaconsCommandableHttpClientV1)
+	bcf.RegisterType(bcf.MemoryClientDescriptor, bclients.NewBeaconsMemoryClientV1)
 
 	return &bcf
 }
