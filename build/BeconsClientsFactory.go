@@ -22,13 +22,13 @@ func NewBeaconsClientFactory() *BeaconsClientFactory {
 	bcf := BeaconsClientFactory{}
 	bcf.Factory = *cbuild.NewFactory()
 
-	bcf.NullClientDescriptor = cref.NewDescriptor("beacons", "client", "null", "*", "1.0")
-	bcf.DirectClientDescriptor = cref.NewDescriptor("beacons", "client", "direct", "*", "1.0")
-	bcf.HttpClientDescriptor = cref.NewDescriptor("beacons", "client", "http", "*", "1.0")
-	bcf.GrpcClientDescriptor = cref.NewDescriptor("beacons", "client", "grpc", "*", "1.0")
-	bcf.CmdHttpClientDescriptor = cref.NewDescriptor("beacons", "client", "commandable-http", "*", "1.0")
-	bcf.CmdGrpcClientDescriptor = cref.NewDescriptor("beacons", "client", "commandable-grpc", "*", "1.0")
-	bcf.MemoryClientDescriptor = cref.NewDescriptor("beacons", "client", "memory", "*", "1.0")
+	bcf.NullClientDescriptor = cref.NewDescriptor("pip-services-beacons", "client", "null", "*", "1.0")
+	bcf.DirectClientDescriptor = cref.NewDescriptor("pip-services-beacons", "client", "direct", "*", "1.0")
+	bcf.HttpClientDescriptor = cref.NewDescriptor("pip-services-beacons", "client", "http", "*", "1.0")
+	bcf.GrpcClientDescriptor = cref.NewDescriptor("pip-services-beacons", "client", "grpc", "*", "1.0")
+	bcf.CmdHttpClientDescriptor = cref.NewDescriptor("pip-services-beacons", "client", "commandable-http", "*", "1.0")
+	bcf.CmdGrpcClientDescriptor = cref.NewDescriptor("pip-services-beacons", "client", "commandable-grpc", "*", "1.0")
+	bcf.MemoryClientDescriptor = cref.NewDescriptor("pip-services-beacons", "client", "memory", "*", "1.0")
 
 	bcf.RegisterType(bcf.NullClientDescriptor, bclients.NewBeaconsNullClientV1)
 	bcf.RegisterType(bcf.DirectClientDescriptor, bclients.NewBeaconsDirectClientV1)

@@ -17,7 +17,7 @@ func NewBeaconsDirectClientV1() *BeaconsDirectClientV1 {
 	c := &BeaconsDirectClientV1{
 		DirectClient: *clients.NewDirectClient(),
 	}
-	c.DependencyResolver.Put("controller", cref.NewDescriptor("beacons", "controller", "*", "*", "1.0"))
+	c.DependencyResolver.Put("controller", cref.NewDescriptor("pip-services-beacons", "controller", "*", "*", "1.0"))
 	return c
 }
 

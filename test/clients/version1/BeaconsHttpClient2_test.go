@@ -1,39 +1,39 @@
 package test_clients1
 
-import (
-	"testing"
+// import (
+// 	"testing"
 
-	clients1 "github.com/pip-services-samples/pip-clients-beacons-go/clients/version1"
-	cconf "github.com/pip-services3-go/pip-services3-commons-go/config"
-	cref "github.com/pip-services3-go/pip-services3-commons-go/refer"
-)
+// 	clients1 "github.com/pip-services-samples/pip-clients-beacons-go/clients/version1"
+// 	cconf "github.com/pip-services3-go/pip-services3-commons-go/config"
+// 	cref "github.com/pip-services3-go/pip-services3-commons-go/refer"
+// )
 
-func TestBeaconsHttpClientExtV1(t *testing.T) {
+// func TestBeaconsHttpClientExtV1(t *testing.T) {
 
-	var client *clients1.BeaconsCommandableHttpClientV1
-	var fixture *BeaconsClientV1Fixture
+// 	var client *clients1.BeaconsCommandableHttpClientV1
+// 	var fixture *BeaconsClientV1Fixture
 
-	httpConfig := cconf.NewConfigParamsFromTuples(
-		"connection.protocol", "http",
-		"connection.port", "8080",
-		"connection.host", "localhost",
-	)
+// 	httpConfig := cconf.NewConfigParamsFromTuples(
+// 		"connection.protocol", "http",
+// 		"connection.port", "8080",
+// 		"connection.host", "localhost",
+// 	)
 
-	client = clients1.NewBeaconsCommandableHttpClientV1()
-	client.Configure(httpConfig)
+// 	client = clients1.NewBeaconsCommandableHttpClientV1()
+// 	client.Configure(httpConfig)
 
-	references := cref.NewReferencesFromTuples(
-		cref.NewDescriptor("beacons", "client", "http", "default", "1.0"), client,
-	)
+// 	references := cref.NewReferencesFromTuples(
+// 		cref.NewDescriptor("pip-services-beacons", "client", "http", "default", "1.0"), client,
+// 	)
 
-	client.SetReferences(references)
+// 	client.SetReferences(references)
 
-	fixture = NewBeaconsClientV1Fixture(client)
+// 	fixture = NewBeaconsClientV1Fixture(client)
 
-	client.Open("")
+// 	client.Open("")
 
-	defer client.Close("")
+// 	defer client.Close("")
 
-	t.Run("BeaconsHttpClientV1:CRUD Operations", fixture.TestCrudOperations)
+// 	t.Run("BeaconsHttpClientV1:CRUD Operations", fixture.TestCrudOperations)
 
-}
+// }

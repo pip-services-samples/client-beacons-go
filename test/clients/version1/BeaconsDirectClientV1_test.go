@@ -28,9 +28,9 @@ func newBeaconsDirectClientV1Test() *beaconsDirectClientV1Test {
 	client.Configure(cconf.NewEmptyConfigParams())
 
 	references := cref.NewReferencesFromTuples(
-		cref.NewDescriptor("beacons", "persistence", "memory", "default", "1.0"), persistence,
-		cref.NewDescriptor("beacons", "controller", "default", "default", "1.0"), controller,
-		cref.NewDescriptor("beacons", "client", "direct", "default", "1.0"), client,
+		cref.NewDescriptor("pip-services-beacons", "persistence", "memory", "default", "1.0"), persistence,
+		cref.NewDescriptor("pip-services-beacons", "controller", "default", "default", "1.0"), controller,
+		cref.NewDescriptor("pip-services-beacons", "client", "direct", "default", "1.0"), client,
 	)
 	controller.SetReferences(references)
 	client.SetReferences(references)

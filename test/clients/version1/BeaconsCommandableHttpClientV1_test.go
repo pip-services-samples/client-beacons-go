@@ -39,10 +39,10 @@ func newBeaconsCommandableHttpClientV1Test() *beaconsCommandableHttpClientV1Test
 	client.Configure(httpConfig)
 
 	references := cref.NewReferencesFromTuples(
-		cref.NewDescriptor("beacons", "persistence", "memory", "default", "1.0"), persistence,
-		cref.NewDescriptor("beacons", "controller", "default", "default", "1.0"), controller,
-		cref.NewDescriptor("beacons", "service", "http", "default", "1.0"), service,
-		cref.NewDescriptor("beacons", "client", "http", "default", "1.0"), client,
+		cref.NewDescriptor("pip-services-beacons", "persistence", "memory", "default", "1.0"), persistence,
+		cref.NewDescriptor("pip-services-beacons", "controller", "default", "default", "1.0"), controller,
+		cref.NewDescriptor("pip-services-beacons", "service", "http", "default", "1.0"), service,
+		cref.NewDescriptor("pip-services-beacons", "client", "http", "default", "1.0"), client,
 	)
 	controller.SetReferences(references)
 	service.SetReferences(references)
