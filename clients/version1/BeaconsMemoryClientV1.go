@@ -1,9 +1,10 @@
 package clients1
 
 import (
+	"reflect"
 	"strings"
 
-	data1 "github.com/pip-services-samples/pip-services-beacons-go/data/version1"
+	data1 "github.com/pip-services-samples/service-beacons-go/data/version1"
 	cdata "github.com/pip-services3-go/pip-services3-commons-go/data"
 	mdata "github.com/pip-services3-go/pip-services3-data-go/persistence"
 )
@@ -11,12 +12,14 @@ import (
 type BeaconsMemoryClientV1 struct {
 	maxPageSize int
 	items       []data1.BeaconV1
+	proto       reflect.Type
 }
 
 func NewBeaconsMemoryClientV1(items []data1.BeaconV1) *BeaconsMemoryClientV1 {
 	c := &BeaconsMemoryClientV1{
 		maxPageSize: 100,
 		items:       make([]data1.BeaconV1, 0),
+		proto:       reflect.TypeOf(data1.BeaconV1{}),
 	}
 	c.items = append(c.items, items...)
 	return c
@@ -168,7 +171,7 @@ func (c *BeaconsMemoryClientV1) CreateBeacon(correlationId string, beacon *data1
 		return nil, nil
 	}
 
-	newItem := mdata.CloneObject(beacon)
+	newItem := mdata.CloneObject(beacon, c.proto)
 	item, _ := newItem.(data1.BeaconV1)
 	mdata.GenerateObjectId(&newItem)
 
@@ -190,7 +193,7 @@ func (c *BeaconsMemoryClientV1) UpdateBeacon(correlationId string, beacon *data1
 		return nil, nil
 	}
 
-	newItem := mdata.CloneObject(beacon)
+	newItem := mdata.CloneObject(beacon, c.proto)
 	item, _ := newItem.(data1.BeaconV1)
 	c.items[index] = item
 	return &item, nil

@@ -3,8 +3,8 @@ package test_clients1
 import (
 	"testing"
 
-	clients1 "github.com/pip-services-samples/pip-clients-beacons-go/clients/version1"
-	data1 "github.com/pip-services-samples/pip-services-beacons-go/data/version1"
+	clients1 "github.com/pip-services-samples/client-beacons-go/clients/version1"
+	data1 "github.com/pip-services-samples/service-beacons-go/data/version1"
 	cdata "github.com/pip-services3-go/pip-services3-commons-go/data"
 	"github.com/stretchr/testify/assert"
 )

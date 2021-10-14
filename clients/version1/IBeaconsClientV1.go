@@ -1,7 +1,7 @@
 package clients1
 
 import (
-	data1 "github.com/pip-services-samples/pip-services-beacons-go/data/version1"
+	data1 "github.com/pip-services-samples/service-beacons-go/data/version1"
 	cdata "github.com/pip-services3-go/pip-services3-commons-go/data"
 )
 

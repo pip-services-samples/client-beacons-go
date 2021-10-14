@@ -3,9 +3,9 @@ package test_clients1
 import (
 	"testing"
 
-	clients1 "github.com/pip-services-samples/pip-clients-beacons-go/clients/version1"
-	logic "github.com/pip-services-samples/pip-services-beacons-go/logic"
-	persist "github.com/pip-services-samples/pip-services-beacons-go/persistence"
+	clients1 "github.com/pip-services-samples/client-beacons-go/clients/version1"
+	logic "github.com/pip-services-samples/service-beacons-go/logic"
+	persist "github.com/pip-services-samples/service-beacons-go/persistence"
 	cconf "github.com/pip-services3-go/pip-services3-commons-go/config"
 	cref "github.com/pip-services3-go/pip-services3-commons-go/refer"
 )
@@ -28,9 +28,9 @@ func newBeaconsDirectClientV1Test() *beaconsDirectClientV1Test {
 	client.Configure(cconf.NewEmptyConfigParams())
 
 	references := cref.NewReferencesFromTuples(
-		cref.NewDescriptor("pip-services-beacons", "persistence", "memory", "default", "1.0"), persistence,
-		cref.NewDescriptor("pip-services-beacons", "controller", "default", "default", "1.0"), controller,
-		cref.NewDescriptor("pip-services-beacons", "client", "direct", "default", "1.0"), client,
+		cref.NewDescriptor("beacons", "persistence", "memory", "default", "1.0"), persistence,
+		cref.NewDescriptor("beacons", "controller", "default", "default", "1.0"), controller,
+		cref.NewDescriptor("beacons", "client", "direct", "default", "1.0"), client,
 	)
 	controller.SetReferences(references)
 	client.SetReferences(references)

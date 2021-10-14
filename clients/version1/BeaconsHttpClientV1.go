@@ -3,21 +3,21 @@ package clients1
 import (
 	"reflect"
 
-	data1 "github.com/pip-services-samples/pip-services-beacons-go/data/version1"
+	data1 "github.com/pip-services-samples/service-beacons-go/data/version1"
 	cdata "github.com/pip-services3-go/pip-services3-commons-go/data"
-	cclients "github.com/pip-services3-go/pip-services3-grpc-go/clients"
+	cclients "github.com/pip-services3-go/pip-services3-rpc-go/clients"
 )
 
-type BeaconsCommandableGrpcClientV1 struct {
-	*cclients.CommandableGrpcClient
+type BeaconsHttpClientV1 struct {
+	*cclients.CommandableHttpClient
 	beaconV1DataPageType reflect.Type
 	beaconV1Type         reflect.Type
 	geoPointV1Type       reflect.Type
 }
 
-func NewBeaconsCommandableGrpcClientV1() *BeaconsCommandableGrpcClientV1 {
-	c := &BeaconsCommandableGrpcClientV1{
-		CommandableGrpcClient: cclients.NewCommandableGrpcClient("v1.beacons"),
+func NewBeaconsHttpClientV1() *BeaconsHttpClientV1 {
+	c := &BeaconsHttpClientV1{
+		CommandableHttpClient: cclients.NewCommandableHttpClient("v1/beacons"),
 		beaconV1DataPageType:  reflect.TypeOf(&data1.BeaconV1DataPage{}),
 		beaconV1Type:          reflect.TypeOf(&data1.BeaconV1{}),
 		geoPointV1Type:        reflect.TypeOf(&data1.GeoPointV1{}),
@@ -25,7 +25,7 @@ func NewBeaconsCommandableGrpcClientV1() *BeaconsCommandableGrpcClientV1 {
 	return c
 }
 
-func (c *BeaconsCommandableGrpcClientV1) GetBeacons(
+func (c *BeaconsHttpClientV1) GetBeacons(
 	correlationId string, filter *cdata.FilterParams,
 	paging *cdata.PagingParams) (*data1.BeaconV1DataPage, error) {
 
@@ -43,7 +43,7 @@ func (c *BeaconsCommandableGrpcClientV1) GetBeacons(
 	return result, nil
 }
 
-func (c *BeaconsCommandableGrpcClientV1) GetBeaconById(
+func (c *BeaconsHttpClientV1) GetBeaconById(
 	correlationId string, beaconId string) (*data1.BeaconV1, error) {
 	params := cdata.NewAnyValueMapFromTuples(
 		"beacon_id", beaconId,
@@ -58,7 +58,7 @@ func (c *BeaconsCommandableGrpcClientV1) GetBeaconById(
 	return result, nil
 }
 
-func (c *BeaconsCommandableGrpcClientV1) GetBeaconByUdi(
+func (c *BeaconsHttpClientV1) GetBeaconByUdi(
 	correlationId string, udi string) (*data1.BeaconV1, error) {
 	params := cdata.NewAnyValueMapFromTuples(
 		"udi", udi,
@@ -73,7 +73,7 @@ func (c *BeaconsCommandableGrpcClientV1) GetBeaconByUdi(
 	return result, nil
 }
 
-func (c *BeaconsCommandableGrpcClientV1) CalculatePosition(
+func (c *BeaconsHttpClientV1) CalculatePosition(
 	correlationId string, siteId string, udis []string) (*data1.GeoPointV1, error) {
 	params := cdata.NewAnyValueMapFromTuples(
 		"site_id", siteId,
@@ -89,7 +89,7 @@ func (c *BeaconsCommandableGrpcClientV1) CalculatePosition(
 	return result, nil
 }
 
-func (c *BeaconsCommandableGrpcClientV1) CreateBeacon(
+func (c *BeaconsHttpClientV1) CreateBeacon(
 	correlationId string, beacon *data1.BeaconV1) (*data1.BeaconV1, error) {
 	params := cdata.NewAnyValueMapFromTuples(
 		"beacon", beacon,
@@ -104,7 +104,7 @@ func (c *BeaconsCommandableGrpcClientV1) CreateBeacon(
 	return result, nil
 }
 
-func (c *BeaconsCommandableGrpcClientV1) UpdateBeacon(
+func (c *BeaconsHttpClientV1) UpdateBeacon(
 	correlationId string, beacon *data1.BeaconV1) (*data1.BeaconV1, error) {
 	params := cdata.NewAnyValueMapFromTuples(
 		"beacon", beacon,
@@ -119,7 +119,7 @@ func (c *BeaconsCommandableGrpcClientV1) UpdateBeacon(
 	return result, nil
 }
 
-func (c *BeaconsCommandableGrpcClientV1) DeleteBeaconById(
+func (c *BeaconsHttpClientV1) DeleteBeaconById(
 	correlationId string, beaconId string) (*data1.BeaconV1, error) {
 	params := cdata.NewAnyValueMapFromTuples(
 		"beacon_id", beaconId,
